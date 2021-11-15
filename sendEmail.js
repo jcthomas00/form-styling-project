@@ -1,7 +1,3 @@
-// Your code to validate your form and send the email will go here!
-// All Fields are required for submission
-// Make sure the Password and Confirm Password Match
-
 // Let the user know if the passwords to not match
 // Also let the user know when the email has been successfully sent
 
@@ -23,14 +19,17 @@ document.addEventListener('DOMContentLoaded', () => {
         if(data["pasword2"] != data["password"]){
             errorMsg.innerHTML = "The passwords do not match. Please try again.";
         }else{
+            document.querySelector('#container').style.transform = 'translateX(2000px)';
+
             emailjs.sendForm('service_brx8wge', 'template_dpe991f', e.target)
             .then(function() {
                 errorMsg.innerHTML = '';
                 successMsg.innerHTML = "Email successfully sent.";
+                document.querySelector('#success-container').style.transform = 'translateX(0px)';
             }, function(error) {
                 errorMsg.innerHTML = "Sending email failed! Please try again.";
+                document.querySelector('#container').style.transform = 'translateX(0px)';
             });
         }
     })
-
 })

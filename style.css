@@ -35,8 +35,35 @@
     padding: 20px;
     max-width: 400px;
     margin: auto;
+    transition: all ease 2s;
   }
 
+  #success-container {
+    width: 300px;
+    transition: all ease 2s;
+    background-color: #fff;
+    text-align: center;
+    position: absolute;
+    transform: translateX(-2000px);
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    height: 250px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    color: green;
+}
+
+#success-container p {
+  margin: auto;
+  font-size: 20px;
+  font-weight: bold;
+  color: green;
+}
   .form-wrap {
     /* 
       This is the white area around the form and heading, etc
@@ -45,6 +72,7 @@
     padding: 10px;
     position: relative;
     display: block;
+    color: #777;
   }
 
   .form-wrap h1,
@@ -53,6 +81,7 @@
       May want to center these
     */
     text-align: center;
+    color: #000;
   }
 
   .form-wrap .form-group {
@@ -75,7 +104,9 @@
       Inputs should reach accross the .form-wrap 100% and have some padding
     */
     width: 100%;
-    padding: 5px;
+    padding: 7px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
   }
 
   .form-wrap button {
@@ -90,6 +121,7 @@
     border: none;
     color: #fff;
     margin: 10px 0;
+    border-radius: 5px;
   }
 
   .form-wrap button:hover {
@@ -131,4 +163,54 @@
 }
 .error{
   color: red;
+}
+/* Animations */
+
+.main{
+  width: 100vw;
+  overflow: hidden;
+}
+#wait-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -64.5px;
+  margin-top: -85.5px;
+  transition: all ease 2s;
+}
+
+.ghost {
+  animation: float 3s ease-out infinite;
+}
+
+@keyframes float {
+  50% {
+     transform: translate(0, 20px);
+  }
+}
+.shadowFrame {
+  width: 130px;
+  margin-top: 15px;
+}
+.shadow {
+  animation: shrink 3s ease-out infinite;
+  transform-origin: center center;
+  ellipse {
+    transform-origin: center center;
+  }
+}
+
+@keyframes shrink {
+  0% {
+    width: 90%;
+    margin: 0 5%;
+  }
+  50% {
+    width: 60%;
+    margin: 0 18%;
+  }
+  100% {
+    width: 90%;
+    margin: 0 5%;
+  }
 }
